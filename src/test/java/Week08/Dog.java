@@ -3,8 +3,8 @@
     public class Dog extends Animal {
 
         @Override
-        public String sound() {
-           return "小狗"+super.getName()+super.sound()+"汪汪汪";
+        public  void sound() {
+            System.out.println("小狗"+super.getName()+"汪汪汪");
         }
 
         public Dog() {

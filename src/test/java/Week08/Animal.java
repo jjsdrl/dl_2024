@@ -1,12 +1,10 @@
 package Week08;
 
-public class Animal {
+public abstract class Animal {
     private String name;
 
 
-    public String sound(){
-        return "正在发出声音!";
-    }
+    public abstract void sound();
 
     public Animal() {
     }

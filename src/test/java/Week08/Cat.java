@@ -3,8 +3,8 @@ package Week08;
 public class Cat extends Animal{
 
     @Override
-    public String sound() {
-        return "小猫"+super.getName()+super.sound()+"喵喵喵";
+    public void sound() {
+        System.out.println("小猫"+super.getName()+"喵喵喵");
     }
 
     public Cat() {
