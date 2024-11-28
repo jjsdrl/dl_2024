@@ -1,5 +1,7 @@
 package Week12;
 
+import java.util.StringJoiner;
+
 public class Demo02 {
     public static void main(String[] args) {
         String[] fields = {"name","position","salary"};
@@ -15,19 +17,25 @@ public class Demo02 {
         //创建StringBuilder对象
         StringBuilder sb = new StringBuilder();
         //循环取值
+//        for (int i = 0; i < fields.length; i++) {
+//            if (i == 0) {
+//                //第一次的时候添加前面的内容
+//                sb.append("INSERT INTO ").append(table).append(" (").append(fields[i]).append(",");
+//            }
+//            else if (i == fields.length - 1) {
+//                //最后一次添加后面的内容
+//                sb.append(fields[i]).append(") VALUES (?,?,?)");
+//            }else {
+//                //中间内容的格式
+//                sb.append(fields[i]).append(",");
+//            }
+//        }
+        StringJoiner sj = new StringJoiner(",", " (", ") ");
         for (int i = 0; i < fields.length; i++) {
-            if (i == 0) {
-                //第一次的时候添加前面的内容
-                sb.append("INSERT INTO ").append(table).append(" (").append(fields[i]).append(",");
-            }
-            else if (i == fields.length - 1) {
-                //最后一次添加后面的内容
-                sb.append(fields[i]).append(") VALUES (?,?,?)");
-            }else {
-                //中间内容的格式
-                sb.append(fields[i]).append(",");
-            }
+            sj.add(fields[i]);
         }
+        sb.append("INSERT INTO ").append(table).append(sj).append("VALUES (?,?,?)");
+
         //返回字符串内容
         return new String(sb);
     }
